@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public abstract class AbstractParser {
+public abstract class AbstractParser<T> {
 
-    public List<Object> asList(String filepath){
+    public List<T> asList(String filepath) {
         try {
             return Files.lines(Paths.get(filepath))
                     .skip(1)
@@ -23,6 +23,6 @@ public abstract class AbstractParser {
         }
     }
 
-    protected abstract Function<String[], Object> toObject();
+    protected abstract Function<String[], T> toObject();
 
 }

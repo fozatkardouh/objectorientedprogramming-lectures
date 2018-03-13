@@ -6,10 +6,10 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class DeveloperParser extends AbstractParser {
+public class DeveloperParser extends AbstractParser<Developer> {
 
     @Override
-    protected Function<String[], Object> toObject() {
+    protected Function<String[], Developer> toObject() {
         return columns -> {
             Developer developer = new Developer();
             developer.setName(columns[0]);
@@ -26,6 +26,5 @@ public class DeveloperParser extends AbstractParser {
                 .map(String::trim)
                 .collect(Collectors.toSet());
     }
-
 
 }
